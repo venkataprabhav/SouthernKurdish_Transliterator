@@ -1,4 +1,6 @@
-# 6001CEM_11251657_Venkata
+# Natural Language Processing: Transliteration for the Pehlewani Dialect of the Kurdish Language
+
+Transliterating the Pehlewani Dialect of the Kurdish Language from a modified version of the Arabic-based Kurdish Script to a Latin-based script, and from a Latin-based script to the modified version of the Arabic-based Kurdish Script. 
 
 
 Install virtual environment file `python -m venv env`
