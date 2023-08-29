@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Virtual Keyboard</h1>
+    {{ keyboard.render() }}
+    <form>
+        <input type="text" id="input-field" name="input-field">
+    </form>
+{% endblock %}

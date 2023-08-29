@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <br>
+            <form method="POST">
+                <!-- Enter text to transliterate. -->
+                <div class="form-group">
+                    <label for="text-to-transliterate"><strong>Enter the Southern Kurdish text you would like transliterated to Latin-based text:</strong></label>
+                    <textarea class="form-control" name="text-to-transliterate" id="text-to-transliterate" rows="5"></textarea>
+
+
+                    <script>
+                    function showKeyboard() {
+                      document.getElementById("keyboard").style.display = "block";
+                    }
+
+
+                    </script>
+                </div>
+                <!-- Select output language here. -->
+                <button type="submit" class="btn btn-primary mb-2" id="transliterate">transliterate text</button></br>
+                </br>
+            </form>
+            <!-- transliterated text returned by the transliterate API is rendered here. -->
+        </div>
+
+        <div class="col">
+            <form>
+                <div class="form-group" id="transliterator-text-response">
+                    <label for="transliteration-result"><strong>transliterated text:</strong></label>
+                    <textarea readonly class="form-control" id="transliteration-result"
+                        rows="5">{{ transliteration_result }}</textarea>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="keyboard-container">
+            <div class="row">
+                <button type="button" class="key">q</button>
+                <button type="button" class="key">w</button>
+                <button type="button" class="key">e</button>
+                <button type="button" class="key">r</button>
+                <button type="button" class="key">t</button>
+                <button type="button" class="key">y</button>
+                <button type="button" class="key">u</button>
+                <button type="button" class="key">i</button>
+                <button type="button" class="key">o</button>
+                <button type="button" class="key">p</button>
+                <button type="button" class="key">ü</button>
+                <button type="button" class="key">î</button>
+                <button type="button" class="key">ğ</button>
+            </div>
+            <div class="row">
+                <button type="button" class="key">a</button>
+                <button type="button" class="key">s</button>
+                <button type="button" class="key">d</button>
+                <button type="button" class="key">f</button>
+                <button type="button" class="key">g</button>
+                <button type="button" class="key">h</button>
+                <button type="button" class="key">j</button>
+                <button type="button" class="key">k</button>
+                <button type="button" class="key">l</button>
+                <button type="button" class="key">ç</button>
+                <button type="button" class="key">ş</button>
+                <button type="button" class="key">ř</button>
+                <button type="button" class="key">ł</button>
+                <button type="button" class="key">ê</button>
+            </div>
+            <div class="row">
+                <button type="button" class="key">z</button>
+                <button type="button" class="key">x</button>
+                <button type="button" class="key">c</button>
+                <button type="button" class="key">v</button>
+                <button type="button" class="key">b</button>
+                <button type="button" class="key">n</button>
+                <button type="button" class="key">m</button>
+                <button type="button" class="key">ḧ</button>
+                <button type="button" class="key">û</button>
+                <button type="button" class="key-delete">&#x232b;</button>
+            </div>
+            <script>
+        function showKeyboard() {
+          document.getElementById("text-to-transliterate").style.display = "block";
+        }
+
+        function hideKeyboard() {
+          document.getElementById("text-to-transliterate").style.display = "none";
+        }
+        </script>
+        </div>
+
+
+        <script>
+        const keys = document.querySelectorAll(".key");
+
+        keys.forEach(key => {
+          key.addEventListener("click", () => {
+            const input = document.getElementById("text-to-transliterate");
+            const value = input.value + key.textContent;
+            input.value = value;
+          });
+        });
+        </script>
+    </div>
+</div>
+
+
+{% endblock content %}

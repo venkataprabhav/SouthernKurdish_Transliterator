@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<html>
+    <body>
+
+        <br>
+            <form action="{{ url_for('test') }}" method="POST">
+                <div>
+                    <input type="file" name="file">
+                    <button type="submit" id="file">Submit</button>
+                </div>
+            </form>
+            <!-- transliterated text returned by the transliterate API is rendered here. -->
+
+
+
+            <form>
+                <div class="form-group" id="transliterator-text-response">
+                    <label for="transliteration-result"><strong>transliterated text:</strong></label>
+                    <textarea readonly class="form-control" id="transliteration-result"
+                        rows="5">{{ transliteration_result }}</textarea>
+                </div>
+            </form>
+
+
+
+    </body>
+</html>
+
+
+
+
+{% endblock content %}
